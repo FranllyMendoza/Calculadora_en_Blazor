@@ -1,0 +1,46 @@
+﻿@page "/"
+
+<style>
+    button {
+        background-color:darkslateblue;
+        padding: 10px;
+        border-radius: 0.5em;
+        color:white;
+    }
+</style>
+
+<h1><b>Calculadora</b></h1>
+
+<p><b>Esto es un programa que pide dos numeros los suma, multiplica y los resta</b></p>
+
+<label>Primer numero</label>
+<br />
+<input type="number" @bind="primernumero" />
+<br />
+<label>Segundo numero</label>
+<br />
+<input type="number" @bind="segundonumero" />
+<br />
+<br />
+<button @onclick="calculadora">Calcular</button>
+
+<br />
+<br />
+<p>La suma es: @suma</p>
+<p>La resta es: @resta</p>
+<p>La multiplicación es: @mult</p>
+
+@code{
+    private int primernumero { get; set; }
+    private int segundonumero { get; set; }
+    private int suma;
+    private int resta;
+    private int mult;
+
+    private void calculadora()
+    {
+        suma = primernumero + segundonumero;
+        resta = primernumero - segundonumero;
+        mult = primernumero * segundonumero;
+    }
+}
